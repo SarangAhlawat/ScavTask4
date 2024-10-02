@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4 - Scavenger Hunt</title>
+    <style>
+      body {
+        background-image: url(Bgc1.png);
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #000000;
+      }
+      .container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #171515;
+        height: 30px;
+        border-radius: 10px;
+        font-size: 20px;
+        background-color: rgb(243, 217, 183);
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #030039;
+        color: white;
+        border: none;
+        cursor: pointer;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 17px;
+      }
+      button:hover {
+        background-color: #b20000;
+      }
+      .result {
+        margin-top: 20px;
+      }
+      h1 {
+        font-size: 50px;
+        font-weight: 1000;
+        margin-bottom: 70px;
+        color: #030039;
+      }
+      p {
+        font-size: 50px;
+        margin-bottom: 70px;
+        font-weight: bolder;
+        color: rgb(21, 7, 7);
+      }
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+      }
+      video{
+        box-shadow: inset 0 4px 15px rgba(0, 0, 0, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <video autoplay muted loop id="myVideo">
+      <source src="bgvid1.mp4" type="video/mp4" />
+    </video> -->
+    <div class="container">
+      <h1>Solve the Question for next room - Team 9, Question 2</h1>
+      <!--to be changed-->
+      <p id="question"></p>
+      <input
+        type="text"
+        id="answer"
+        placeholder="Enter your answer"
+        autocomplete="off"
+      />
+      <button onclick="checkAnswer()">Submit</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      const question = "75÷(5+10)+4×7 = x,  x−3+8"; //to be changed
+      const correctAnswer = 75/(5+10)+4*7-3+8; //to be changed
+
+      document.getElementById("question").innerHTML = question;
+
+      function checkAnswer() {
+        const userAnswer = document.getElementById("answer").value;
+        const resultDiv = document.getElementById("result");
+
+        if (userAnswer == correctAnswer) {
+          resultDiv.innerHTML = "Correct! Redirecting to the next room...";
+          resultDiv.style.color = "darkgreen";
+          resultDiv.style.fontWeight = "900";
+          resultDiv.style.fontSize = "24px";
+          setTimeout(() => {
+            window.location.href = "room.html";
+          }, 2000); // Redirects after 2 seconds
+        } else {
+          resultDiv.innerHTML = "Incorrect, try again!";
+          resultDiv.style.color = "red";
+        }
+      }
+
+      // Get the video element
+      const video = document.getElementById("myVideo");
+
+      // Set playback rate to slow motion (e.g., 0.5 for half speed)
+      video.playbackRate = 0.65;
+      video.preload = 'auto';
+    </script>
+  </body>
+</html>
