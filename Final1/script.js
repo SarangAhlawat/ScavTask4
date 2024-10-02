@@ -1,5 +1,5 @@
 
-const correctPasscodes = ["ABCD", "EFGH", "IJKL", "MNOP", "QRST", "UVWX", "YZ12", "3456", "7890", "WXYZ"]; 
+const correctPasscodes = ["KMLO", "INTV", "ADFS", "UKJB", "TMPO", "HRXZ", "DEGQ", "UTFL", "SKIT", "LIMT"]; 
 
 function checkPasscode() {
   const userPasscode = document.getElementById("passcode").value;
